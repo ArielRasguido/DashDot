@@ -10,4 +10,3 @@ Scenario:
     When presiono el boton "Configurar"
     #Then deberia ver "Terreno: Ancho = 10"
     Then deberia ver "Terreno: Ancho = 10 Alto = 5"
-
