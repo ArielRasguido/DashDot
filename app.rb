@@ -9,6 +9,7 @@ post '/configuracion' do
     @alto_terreno = params[:alto]
     @x_vehiculo = params[:x]
     @y_vehiculo = params[:y]
+    @orientacion = params[:orientacion]
 
     erb :configurar
 end

@@ -7,5 +7,6 @@ Scenario:
     Given Ingreso a la pagina de configuracion
     And En el campo "x" ingreso "5"
     And En el campo "y" ingreso "2"
+    And En el campo "orientacion" ingreso "N"
     When presiono el boton "Configurar"
-    Then deberia ver "Vehiculo: x = 5 y = 2"
+    Then deberia ver "Vehiculo: x = 5 ; y = 2 ; Orientacion = N"
