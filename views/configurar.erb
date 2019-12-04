@@ -1,0 +1,13 @@
+<h1> Configurar </h1> <hr>
+<h2> Terreno: </h2>
+<form method="post" action="/configuracion">
+    <label for="_ancho">Ancho:</label>
+    <input type="text" name="ancho" id="_ancho"> <br> <br>
+
+    <label for="_alto">Alto:</label>
+    <input type="text" name="alto" id="_alto"> <br> <br>
+    
+    <input type="submit" value="Configurar">    
+</form>
+
+<h3>Terreno: Ancho = <%=@ancho_terreno%> Alto = <%=@alto_terreno%> </h3>
