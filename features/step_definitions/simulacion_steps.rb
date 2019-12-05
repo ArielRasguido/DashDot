@@ -8,7 +8,7 @@ end
 When("en el campo {string} ingreso {string}") do |campo, valor|
     fill_in(campo, :with => valor)
 end
-When("presiono el boton {string}") do |buttonName|
+When("presiono el boton llamado {string}") do |buttonName|
     click_button(buttonName)
 end
 
