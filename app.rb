@@ -4,13 +4,25 @@ require './lib/Vehiculo'
 require './lib/DashDot'
 require './lib/Secuencia'
 
-
 def initialize()
     @secuencia= Secuencia.new
     @terreno = Terreno.new
     @vehiculo = Vehiculo.new
     @dashDot = DashDot.new
 end
+
+get '/' do
+    erb :bienvenida
+  end
+
+  post '/configurar' do
+    erb :configurar
+  end
+
+  post '/jugar' do
+    erb :jugar
+  end
+
 
 get '/configuracion' do
     erb :configurar
@@ -53,3 +65,4 @@ post '/dashdotSimulacion' do
     @movimientos_ingresados = @secuencia.secuencia()
     erb :dashdotSimulacion
 end
+
