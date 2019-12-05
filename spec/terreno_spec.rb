@@ -1,28 +1,46 @@
 require 'Terreno'
 
 RSpec.describe Terreno do
-    it 'Deberia devolver true si configuro las dimensiones del terreno' do
-        terreno = Terreno.new
-        expect(terreno.definir_dim(5,6)).to eq(true)
+    before { @terreno = Terreno.new }
+
+    it 'Devuelvo "True" si el numero enviado es positivo' do
+        expect(@terreno.esPositivo(5) ).to eq(true)
     end
-    it 'Deberia devolver true si genero un numero positivo' do
-        terreno = Terreno.new
-        expect(terreno.validar(5)).to eq(true)
+
+    it 'Devuelvo "False" si el numero enviado es negativo' do
+        expect(@terreno.esPositivo(-5) ).to eq(false)
     end
-    it 'Deberia devolver false si genero un numero negativo' do
-        terreno = Terreno.new
-        expect(terreno.validar(-5)).to eq(false)
+
+    it 'Devuelvo "True" si el numero enviado es un numero entero' do
+        expect(@terreno.esNumeroEntero(15) ).to eq(true)
     end
-    it 'Deberia devolver false si configuro dimensiones negativas' do
-        terreno = Terreno.new
-        expect(terreno.definir_dim(-5,-5)).to eq(false)
+
+    it 'Devuelvo "False" si el elemento enviado es un decimal' do
+        expect(@terreno.esNumeroEntero(15.5) ).to eq(false)
     end
-    it 'Deberia devolver true si configuro dimensiones positivas' do
-        terreno = Terreno.new
-        expect(terreno.definir_dim(5,4)).to eq(true)
+
+    it 'Devuelvo "False" si el numero enviado esta en formato cardinal' do
+        expect(@terreno.esNumeroEntero('cinco') ).to eq(false)
     end
-    it 'Deberia devolver false si una de las dimensiones es negativa' do
-        terreno = Terreno.new
-        expect(terreno.definir_dim(5,-4)).to eq(false)
+
+    it 'Devuelvo "True" si las dimensiones configuradas son numeros enteros positivos' do
+        expect(@terreno.definirDimensiones(20, 7) ).to eq(true)
     end
+
+    it 'Devuelvo "False" si las dimensiones enviadas no son numeros enteros' do
+        expect(@terreno.definirDimensiones(22.2, 7.5) ).to eq(false)
+    end
+
+    it 'Devuelvo "False" si las dimensiones enviadas no son numeros enteros positivos' do
+        expect(@terreno.definirDimensiones(-22, -7) ).to eq(false)
+    end
+
+    it 'Devuelvo "False" si las dimensiones enviadas estan en formato cardinal' do
+        expect(@terreno.definirDimensiones('cinco', 'siete') ).to eq(false)
+    end
+
+    it 'Devuelvo "False" si una de las dimensiones no es un numero enteros positivo' do
+        expect(@terreno.definirDimensiones(20, 7.5) ).to eq(false)
+    end
+
 end
