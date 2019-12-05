@@ -22,14 +22,22 @@ class Secuencia
         return true
     end
     def establecer_secuencia(secuencia_de_movimientos)
+       restablecer()
         if(verificar_secuencia(secuencia_de_movimientos))
             secuencia_de_movimientos.each_char do |single|
                 @secuencia[@tam] = single
                 @tam = @tam+1
             end
-            return @secuencia
+            return true
         end
         return false
+    end
+    def secuencia
+        @secuencia
+    end
+    def restablecer()
+        @secuencia = []
+        @tam = 0
     end
     
 end

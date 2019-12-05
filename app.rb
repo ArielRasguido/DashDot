@@ -1,15 +1,23 @@
 require 'sinatra'
-require 'Secuencia'
-
-secuencia= Secuencia.new
+require './lib/Secuencia'
+def initialize()
+    @secuencia= Secuencia.new
+end
 
 get '/simulacion' do
     erb :simulacion
 end
 
 post '/simulacion' do
-    @secuencia_de_movimientos = params[:secuencia]
-    
-    
+    @movimientos_ingresados = params[:secuencia]
+    @secuencia.establecer_secuencia(@movimientos_ingresados)
+    if(!@secuencia.establecer_secuencia(@movimientos_ingresados))
+        @movimientos_ingresados = "SECUENCIA NO PERMITIDA!"
+    end
     erb :simulacion
+end
+
+post '/dashdotSimulacion' do
+    @movimientos_ingresados = @secuencia.secuencia()
+    erb :dashdotSimulacion
 end

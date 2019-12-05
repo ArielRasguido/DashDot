@@ -2,7 +2,11 @@
 
 <form method="post" action="/simulacion">
     <input type='text' name="secuencia"> 
-    <input type="submit" value="Iniciar Simulacion">
+    <input type="submit" value="Establecer secuencia">
 </form>
 
-<p>movimientos del vehiculo: <%=@secuencia_de_movimientos%></p>
+<p>movimientos del vehiculo: <%=@movimientos_ingresados%></p>
+
+<form method="post" action="/dashdotSimulacion">
+    <input type="submit" value="Iniciar Simulacion">
+</form>

@@ -29,12 +29,12 @@ RSpec.describe Secuencia do
         secuencia = Secuencia.new
         expect(secuencia.verificar_secuencia("AIADAN")).to eq(true)
     end
-    it 'Deberia devolver la secuencia [A,I,N,D,A] si ingreso la secuencia: "AINDA" ' do
+    it 'Deberia devolver la secuencia true si ingreso la secuencia: "AINDA" ' do
         secuencia = Secuencia.new
-        expect(secuencia.establecer_secuencia("AINDA")).to eq(['A','I','N','D','A'])
+        expect(secuencia.establecer_secuencia("AINDA")).to eq(true)
     end
     it 'Deberia devolver la cadena [A,I,N,D,A] si ingreso la secuencia: "AINDA" ' do
         secuencia = Secuencia.new
-        expect(secuencia.establecer_secuencia("AINDA")).to eq(['A','I','N','D','A'])
+        expect(secuencia.establecer_secuencia("AINDA")).to eq(true)
     end
 end
