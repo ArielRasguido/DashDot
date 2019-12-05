@@ -1,4 +1,9 @@
 class Secuencia
+    def initialize()
+        @secuencia = []
+        @tam = 0 
+    end
+    
     def validar(movimiento)
         movimienpos_permitidos = ['A','I','D','N','O','E','S']
         isvalid=0
@@ -15,6 +20,16 @@ class Secuencia
             return false if(!validar(single))
         end
         return true
-        
     end
+    def establecer_secuencia(secuencia_de_movimientos)
+        if(verificar_secuencia(secuencia_de_movimientos))
+            secuencia_de_movimientos.each_char do |single|
+                @secuencia[@tam] = single
+                @tam = @tam+1
+            end
+            return @secuencia
+        end
+        return false
+    end
+    
 end
