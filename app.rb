@@ -1,7 +1,7 @@
 require 'sinatra'
 
 get '/' do
-    erb:bienvenida
+    erb :bienvenida
   end
 
   post '/configurar' do
