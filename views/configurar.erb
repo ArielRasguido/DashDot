@@ -1,11 +1,11 @@
-<h1> Configurar </h1> <hr>
+<h1> CONFIGURACION </h1> <hr>
 <form method="post" action="/configuracion">
     <h2> Terreno: </h2>
-    <label for="_ancho">Ancho:</label>
-    <input type="text" name="ancho" id="_ancho"> <br> <br>
-
     <label for="_alto">Alto:</label>
     <input type="text" name="alto" id="_alto"> <br> <br>
+
+    <label for="_ancho">Ancho:</label>
+    <input type="text" name="ancho" id="_ancho"> <br> <br>
 
     <h2> Vehiculo: </h2>
     <label for="_x">x:</label>
@@ -14,11 +14,12 @@
     <label for="_y">y:</label>
     <input type="text" name="y" id="_y"> <br> <br>
 
-    <label for="_orientacion">y:</label>
-    <input type="text" name="orientacion" id="_orientacion"> <br> <br>
+    <label for="_orientacion">Orientacion:</label>
+    <input type="text" name="orientacion" id="_orientacion"> <br> <br> <br>
     
     <input type="submit" value="Configurar"> 
 </form>
-
-<h3>Terreno: Ancho = <%=@ancho_terreno%> Alto = <%=@alto_terreno%> </h3>
+<hr>
+<br>
+<b style="font-size: 20;"> Terreno: </b> <span style="font-size: 18;"> <%=@configuracion_terreno%> </span>
 <h3>Vehiculo: x = <%=@x_vehiculo%> ; y = <%=@y_vehiculo%> ; Orientacion = <%=@orientacion%></h3>
