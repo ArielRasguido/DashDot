@@ -1,17 +1,8 @@
 class Terreno
 
-    # def initialize()
-    #     @alto = 0
-    #     @ancho = 0
-    # end
-
-    def definirDimensiones(alto_parametro, ancho_parametro)
-        if ( validarNumero(alto_parametro) && validarNumero(ancho_parametro) )
-            @alto = alto_parametro
-            @ancho = ancho_parametro
-            return true
-        end
-        return false
+    def initialize()
+        @alto = 0
+        @ancho = 0
     end
 
     def esPositivo(num)
@@ -29,6 +20,16 @@ class Terreno
         return false
     end
 
+    def definirDimensiones(ancho_parametro, alto_parametro)
+        if ( validarNumero(ancho_parametro) && validarNumero(alto_parametro) )
+            @ancho = ancho_parametro
+            @alto = alto_parametro
+            return true
+        end
+        return false
+    end
+
+
     def ancho
         @ancho
     end
@@ -37,11 +38,11 @@ class Terreno
         @alto
     end
 
-    def configurarTerreno(alto, ancho)
-        if definirDimensiones(alto, ancho)
-            return "Alto = #{alto} ; Ancho = #{ancho}"
+    def configurarTerreno(ancho, alto)
+        if definirDimensiones(ancho, alto)
+            return "Ancho = #{ancho} : Alto = #{alto}"
         else
-            return "Las dimensiones deben ser numero enteros y positivos"
+            return "Las dimensiones deben ser numero enteros y positivos."
         end
     end
 
