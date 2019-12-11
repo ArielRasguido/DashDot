@@ -15,7 +15,7 @@ class DashDot
 
     def configurarUbicacionVehiculo(horizontal, vertical)
         if @vehiculo.evaluarUbicacion(horizontal, vertical)
-            if (horizontal <= @terreno.ancho && vertical <= @terreno.alto)
+            if (horizontal < @terreno.ancho && vertical < @terreno.alto)
                 @vehiculo.x = horizontal
                 @vehiculo.y = vertical
                 return "x = #{horizontal} ; y = #{vertical}"

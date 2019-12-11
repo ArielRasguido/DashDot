@@ -5,13 +5,13 @@ class Terreno
         @ancho = 0
     end
 
-    def esPositivo(num)
-        return true if (num > 0)
+    def esNumeroEntero(num)
+        return true if (num.is_a? Integer)
         return false
     end
 
-    def esNumeroEntero(num)
-        return true if (num.is_a? Integer)
+    def esPositivo(num)
+        return true if (num > 0)
         return false
     end
 
@@ -59,6 +59,6 @@ end
 # puts terreno.alto
 # puts terreno.ancho
 
-# terreno = Terreno.new
-# resp = terreno.configurarTerreno(15,5)
-# puts resp
+terreno = Terreno.new
+resp = terreno.configurarTerreno(0,0)
+puts resp

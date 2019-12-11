@@ -9,9 +9,9 @@ Then deberia ver el mensaje "Simulacion"
 
 Scenario:
 Given visito la pagina de simulacion
-When en el campo "secuencia" ingreso "IADAN"
+When en el campo "secuencia" ingreso "IADA"
 And presiono el boton "Establecer secuencia"
-Then deberia ver el mensaje "movimientos del vehiculo: IADAN"
+Then deberia ver el mensaje "movimientos del vehiculo: IADA"
 
 Scenario:
 Given visito la pagina de simulacion
