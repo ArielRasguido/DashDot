@@ -16,14 +16,14 @@ RSpec.describe Secuencia do
     end
     it 'Deberia devolver false si ingreso cualquier letra distinta a: A, I o D' do
         secuencia = Secuencia.new
-        expect(secuencia.verificar_secuencia("AIAR")).to eq(false)
+        expect(secuencia.validar_movimientos("AIAR")).to eq(false)
     end
     it 'Deberia devolver true si ingreso una secuencia de letras solo con letras A, I o D' do
         secuencia = Secuencia.new
-        expect(secuencia.verificar_secuencia("AIADA")).to eq(true)
+        expect(secuencia.validar_movimientos("AIADA")).to eq(true)
     end
     it 'Deberia devolver la cadena [A,I,D,A] si ingreso la secuencia: "AIDA" ' do
         secuencia = Secuencia.new
-        expect(secuencia.establecer_secuencia("AIDA")).to eq(true)
+        expect(secuencia.validar_secuencia("AIDA")).to eq(true)
     end
 end
