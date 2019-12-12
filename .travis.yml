@@ -3,4 +3,4 @@ rvm: 2.5.3
 script:
   - "bundle install"
   - "bundle exec rspec"
-  - "bundle exec cucumbeSr"
+  - "bundle exec cucumber"
