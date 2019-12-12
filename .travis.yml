@@ -1,6 +1,6 @@
 language: ruby
-rvm: 2.4.4
+rvm: 2.5.3
 script:
   - "bundle install"
   - "bundle exec rspec"
-  - "bundle exec cucumber"
+  - "bundle exec cucumbeSr"
