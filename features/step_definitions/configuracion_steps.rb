@@ -13,3 +13,7 @@ end
 Then("deberia ver {string}") do |mensaje|
     last_response.body.should =~ /#{mensaje}/m
 end
+
+When("Vuelvo a la pagina de configuracion") do
+    visit '/configuracion'
+end
