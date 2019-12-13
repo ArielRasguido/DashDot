@@ -24,7 +24,7 @@ Scenario:
     When presiono el boton designado para "Configurar"
     Then deberia enviarme a la pagina configuracion
 
-Scenario:
-    Given visito la pagina principal
-    When presiono el boton designado para "jugar"
-    Then deberia enviarme a la pagina simulacion
+# Scenario:
+#     Given visito la pagina principal
+#     When presiono el boton designado para "jugar"
+#     Then deberia enviarme a la pagina simulacion

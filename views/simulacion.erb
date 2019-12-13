@@ -1,12 +1,13 @@
-<h1>Simulacion</h1>
+<h1> CONFIGURACION </h1> <hr>
 
-<form method="post" action="/simulacion">
-    <input type='text' name="secuencia"> 
-    <input type="submit" value="Establecer secuencia">
-</form>
+<h2>Vehiculo:</h2>
+<b style="font-size: 20;"> Posicion Inicial: </b>
+<span><%=@pos_inicial%></span> <br> 
 
-<p>movimientos del vehiculo: <%=@movimientos_ingresados%></p>
+<% @movimientos.each do |movimiento| %>
+  <p><%= movimiento%></p>
+<% end %>
 
-<form method="post" action="/dashdotSimulacion">
-    <input type="submit" value="Iniciar Simulacion">
-</form>
+<b style="font-size: 20;"> Posicion Final: </b>
+<span><%=@pos_final%></span> <br> <br>
+

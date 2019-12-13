@@ -1,6 +1,6 @@
-require './lib/Terreno'
-require './lib/Vehiculo'
-require './lib/Secuencia'
+# require './lib/Terreno'
+# require './lib/Vehiculo'
+# require './lib/Secuencia'
 
 class DashDot
     
@@ -100,8 +100,8 @@ class DashDot
                 #     return "Movimiento invalido"
                 end
 
-            else
-                return "Niguno"
+            # else
+            #     return "Niguno"
             end
 
         else
@@ -112,14 +112,21 @@ class DashDot
     end
 
     def ejecutarSecuencia()
+        movimientos = []
+        cont = 0
         if (@vehiculo.secuencia)
             @vehiculo.secuencia.movimientos.each_char do |movimiento|
-                ejecutarMovimiento(movimiento)
+                movimientos[cont] = ejecutarMovimiento(movimiento)
+                cont +=1
             end
-            return "x = #{@vehiculo.x} ; y = #{@vehiculo.y} ; Orientacion = #{@vehiculo.orientacion}"
+            return movimientos
         else
-            return "Secuencia sin programar"
+            return movimientos[0] = "Secuencia sin programar"
         end
+    end
+
+    def obtenerPosicion()
+        return "x = #{@vehiculo.x} ; y = #{@vehiculo.y} ; Orientacion = #{@vehiculo.orientacion}"
     end
 
     # def terreno
@@ -132,22 +139,23 @@ class DashDot
 
 end
 
-dashDot = DashDot.new
-terreno = Terreno.new
-terreno.definirDimensiones(5, 5)
-dashDot.agregarTerreno(terreno)
+# dashDot = DashDot.new
+# terreno = Terreno.new
+# terreno.definirDimensiones(5, 5)
+# dashDot.agregarTerreno(terreno)
 
-vehiculo = Vehiculo.new
-vehiculo.definirOrientacion('N')
-secuencia = Secuencia.new
-# secuencia.validar_secuencia("IAIAIAIAA")
-secuencia.validar_secuencia("AA")
-vehiculo.agregarSecuencia(secuencia)
-dashDot.agregarVehiculo(vehiculo)
+# vehiculo = Vehiculo.new
+# vehiculo.definirOrientacion('N')
+# secuencia = Secuencia.new
+# # secuencia.validar_secuencia("IAIAIAIAA")
+# secuencia.validar_secuencia("AA")
+# vehiculo.agregarSecuencia(secuencia)
+# dashDot.agregarVehiculo(vehiculo)
 
-dashDot.configurarUbicacionVehiculo(1,2)
-puts "X: #{dashDot.vehiculo.x}    Y: #{dashDot.vehiculo.y}    Orientacion: #{dashDot.vehiculo.orientacion}"
-dashDot.ejecutarSecuencia()
+# dashDot.configurarUbicacionVehiculo(1,2)
+# puts "X: #{dashDot.vehiculo.x}    Y: #{dashDot.vehiculo.y}    Orientacion: #{dashDot.vehiculo.orientacion}"
+# puts dashDot.ejecutarSecuencia()
+
 
 # vehiculo.definirOrientacion('E')
 # dashDot.configurarUbicacionVehiculo(3,3)
