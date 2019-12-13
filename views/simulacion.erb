@@ -1,19 +1,36 @@
-<h1> CONFIGURACION </h1> <hr>
+<h1> SIMULACION </h1> <hr>
+
+<a href="/">
+    <input type="button" value="Volver">
+</a>
+<br>
+
+<b style="font-size: 22;"> Terreno: </b>
+<strong> Ancho = </strong> <%= @ancho_configurado %>
+<strong> Alto = </strong> <%= @alto_configurado %>  <br>
 
 <% @dashDot.vehiculos.each do |vehiculo| %>
-  <h2>Vehiculo <%= @nro_vehiculo %>:</h2>
-  <b style="font-size: 20;"> Posicion Inicial: </b>
-  <span><%=@dashDot.obtenerPosicion(vehiculo)%></span> <br>
+  <% if (vehiculo) %>
 
-  <% @movimientos = @dashDot.ejecutarSecuencia(vehiculo)  %>
+    <h2>Vehiculo <%= @nro_vehiculo %>:</h2>
+    <b style="font-size: 20;"> Posicion Inicial: </b>
+    <span><%=@dashDot.obtenerPosicion(vehiculo)%></span> <br>
 
-  <% @movimientos.each do |movimiento| %>
-    <p><%= movimiento%></p>
-  <% end %>
+    <strong> Secuencia: </strong> <%= @dashDot.obtenerSecuencia(vehiculo) %>  <br>
 
-  <b style="font-size: 20;"> Posicion Final: </b>
-  <span><%=@dashDot.obtenerPosicion(vehiculo)%></span> <br> <br>
+    <% @movimientos = @dashDot.ejecutarSecuencia(vehiculo)  %>
 
-  <% @nro_vehiculo +=1  %>
+    <% @movimientos.each do |movimiento| %>
+      <%= movimiento%> <br>
+    <% end %>
+
+    <b style="font-size: 20;"> Posicion Final: </b>
+    <span><%=@dashDot.obtenerPosicion(vehiculo)%></span> <br> <br>
+
+    <% @nro_vehiculo +=1  %>
+  
+  <%else%>
+    <p>Vehiculo mal configurado </p>
+  <%end%>
 
 <% end %>
