@@ -32,9 +32,7 @@ RSpec.describe DashDot do
     end
 
     context "Movimiento del vehiculo" do
-        before {@dashDot.vehiculo.definirOrientacion('N')
-                @secuencia = Secuencia.new
-                }
+        before {@dashDot.vehiculo.definirOrientacion('N') }
 
         it 'Devuelve "E" si la orientacion del vehiculo era "N" inicialmente y este gira a la derecha una vez' do
             @dashDot.ejecutarMovimiento('D')
@@ -47,30 +45,49 @@ RSpec.describe DashDot do
             expect(@dashDot.vehiculo.y).to eq(3)
         end
 
-        it 'Devuelve un mensaje de alerta si el vehiculo trata de avanzar una casilla hacia el Norte estando en el limite superior del terreno (x=1,y=4)' do
-            @dashDot.configurarUbicacionVehiculo(1, 4)
-            @dashDot.ejecutarMovimiento('A')
-            expect(@dashDot.ejecutarMovimiento('A')).to eq("Movimiento supera el limite superior del terreno")
+        context "Movimiento del vehiculo sin salir del terreno" do
+            it 'Devuelve un mensaje de alerta si el vehiculo trata de avanzar una casilla hacia el Norte estando en el limite superior del terreno (x=1,y=4)' do
+                @dashDot.configurarUbicacionVehiculo(1, 4)
+                expect(@dashDot.ejecutarMovimiento('A')).to eq("Movimiento supera el limite superior del terreno")
+            end
+            it 'Devuelve un mensaje de alerta si el vehiculo trata de avanzar una casilla hacia el Este estando en el limite derecho del terreno (x=4,y=1)' do
+                @dashDot.configurarUbicacionVehiculo(4, 1)
+                @dashDot.vehiculo.definirOrientacion('E')
+                expect(@dashDot.ejecutarMovimiento('A')).to eq("Movimiento supera el limite derecho del terreno")
+            end
+            it 'Devuelve un mensaje de alerta si el vehiculo trata de avanzar una casilla hacia el Sur estando en el limite inferior del terreno (x=2,y=0)' do
+                @dashDot.configurarUbicacionVehiculo(2, 0)
+                @dashDot.vehiculo.definirOrientacion('S')
+                expect(@dashDot.ejecutarMovimiento('A')).to eq("Movimiento supera el limite inferior del terreno")
+            end
+            it 'Devuelve un mensaje de alerta si el vehiculo trata de avanzar una casilla hacia el Oeste estando en el limite izquierdo del terreno (x=0,y=2)' do
+                @dashDot.configurarUbicacionVehiculo(0, 2)
+                @dashDot.vehiculo.definirOrientacion('O')
+                expect(@dashDot.ejecutarMovimiento('A')).to eq("Movimiento supera el limite izquierdo del terreno")
+            end
         end
 
-        it 'Devuelve la posicion y=4 si el estado inicial del vehiculo era (x=1,y=2, N) y este avanza dos casillas hacia el Norte' do
-            @dashDot.configurarUbicacionVehiculo(1, 2)
-            @secuencia.validar_secuencia("AA")
-            @dashDot.vehiculo.agregarSecuencia(@secuencia)
-            @dashDot.ejecutarSecuencia()
-            expect(@dashDot.vehiculo.y).to eq(4)
-        end
+        context "Secuencia de movimientos del vehiculo" do
+            before { @secuencia = Secuencia.new }
+            it 'Devuelve la posicion y=4 si el estado inicial del vehiculo era (x=1,y=2, N) y este avanza dos casillas hacia el Norte' do
+                @dashDot.configurarUbicacionVehiculo(1, 2)
+                @secuencia.validar_secuencia("AA")
+                @dashDot.vehiculo.agregarSecuencia(@secuencia)
+                @dashDot.ejecutarSecuencia()
+                expect(@dashDot.vehiculo.y).to eq(4)
+            end
 
-        it 'Devuelve un mensaje de alerta si la plataforma trata de ejecutar movimientos en el vehiculo sin haber programada una secuencia previamente' do
-            @dashDot.configurarUbicacionVehiculo(1, 2)
-            expect(@dashDot.ejecutarSecuencia()).to eq("Secuencia sin programar")
-        end
+            it 'Devuelve un mensaje de alerta si la plataforma trata de ejecutar movimientos en el vehiculo sin haber programada una secuencia previamente' do
+                @dashDot.configurarUbicacionVehiculo(1, 2)
+                expect(@dashDot.ejecutarSecuencia()).to eq("Secuencia sin programar")
+            end
 
-        it 'Devuelve la posicion y orientacion final del vehiculo (1,3 N) cuyo estado incial era (1,2 N) tras ejecutar la secuencia "IAIAIAIAA"' do
-            @dashDot.configurarUbicacionVehiculo(1, 2)
-            @secuencia.validar_secuencia("IAIAIAIAA")
-            @dashDot.vehiculo.agregarSecuencia(@secuencia)
-            expect(@dashDot.ejecutarSecuencia()).to eq("x = 1 ; y = 3 ; Orientacion = N")
+            it 'Devuelve la posicion y orientacion final del vehiculo (1,3 N) cuyo estado incial era (1,2 N) tras ejecutar la secuencia "IAIAIAIAA"' do
+                @dashDot.configurarUbicacionVehiculo(1, 2)
+                @secuencia.validar_secuencia("IAIAIAIAA")
+                @dashDot.vehiculo.agregarSecuencia(@secuencia)
+                expect(@dashDot.ejecutarSecuencia()).to eq("x = 1 ; y = 3 ; Orientacion = N")
+            end
         end
 
     end

@@ -48,8 +48,8 @@ class DashDot
                     else
                         return "Movimiento supera el limite superior del terreno"
                     end
-                else
-                    return "Movimiento invalido"
+                # else
+                #     return "Movimiento invalido"
                 end
 
             when 'E'
@@ -64,8 +64,8 @@ class DashDot
                     else
                         return "Movimiento supera el limite derecho del terreno"
                     end
-                else
-                    return "Movimiento invalido"
+                # else
+                #     return "Movimiento invalido"
                 end
 
             when 'S'
@@ -80,8 +80,8 @@ class DashDot
                     else
                         return "Movimiento supera el limite inferior del terreno"
                     end
-                else
-                    return "Movimiento invalido"
+                # else
+                #     return "Movimiento invalido"
                 end
 
             when 'O'
@@ -96,8 +96,8 @@ class DashDot
                     else
                         return "Movimiento supera el limite izquierdo del terreno"
                     end
-                else
-                  return "Movimiento invalido"
+                # else
+                #     return "Movimiento invalido"
                 end
 
             else
@@ -122,9 +122,9 @@ class DashDot
         end
     end
 
-    def terreno
-        @terreno
-    end
+    # def terreno
+    #     @terreno
+    # end
 
     def vehiculo
         @vehiculo
