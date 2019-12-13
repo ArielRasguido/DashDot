@@ -1,4 +1,3 @@
-
 Feature:
 Como Jugador
 Quiero ver un saludo de bienvenida al entrar a la pagina
