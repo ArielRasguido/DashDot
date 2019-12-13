@@ -4,6 +4,7 @@ class Vehiculo
         @x = 0
         @y = 0
         @orientacion
+        @secuencia
     end
 
     def esPositivo(numero)
@@ -55,6 +56,14 @@ class Vehiculo
 
     def orientacion
         @orientacion
+    end
+
+    def secuencia
+        @secuencia
+    end
+
+    def agregarSecuencia(secuencia_parametro)
+        @secuencia = secuencia_parametro
     end
     
 end

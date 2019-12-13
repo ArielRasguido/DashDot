@@ -1,4 +1,5 @@
 require 'Vehiculo'
+require 'Secuencia'
 
 RSpec.describe Vehiculo do
     before { @vehiculo = Vehiculo.new }
@@ -41,6 +42,13 @@ RSpec.describe Vehiculo do
     it 'Devuelvo "N" si la orientacion es configurada con ese punto cardinal' do
         @vehiculo.definirOrientacion('N')
         expect(@vehiculo.orientacion).to eq("N")
+    end
+
+    it 'Devuelvo "AAID" si se le agrega esta secuencia al vehiculo' do
+        secuencia = Secuencia.new
+        secuencia.validar_secuencia("AIDA")
+        @vehiculo.agregarSecuencia(secuencia)
+        expect(@vehiculo.secuencia.movimientos).to eq("AIDA")
     end
 
 end

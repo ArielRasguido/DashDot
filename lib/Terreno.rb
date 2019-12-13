@@ -59,6 +59,6 @@ end
 # puts terreno.alto
 # puts terreno.ancho
 
-terreno = Terreno.new
-resp = terreno.configurarTerreno(0,0)
-puts resp
+# terreno = Terreno.new
+# resp = terreno.configurarTerreno(0,0)
+# puts resp

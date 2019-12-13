@@ -36,6 +36,9 @@ post '/configuracion' do
 
     @movimientos_ingresados = params[:secuencia]
     @secuencia_configurada = @secuencia.configurar_secuencia(@movimientos_ingresados)
+
+    @vehiculo.agregarSecuencia(@secuencia)
+    @secuencia_vehiculo = @vehiculo.secuencia.movimientos()
     erb :configurar
 end
 

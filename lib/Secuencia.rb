@@ -1,7 +1,8 @@
 class Secuencia
     def initialize()
-        @secuencia = []
-        @tam = 0 
+        @movimientos
+        # @movimientos = []
+        # @tam = 0 
     end
     
     def validar(movimiento)
@@ -23,28 +24,34 @@ class Secuencia
        restablecer()
         if(validar_movimientos(secuencia_de_movimientos))
             secuencia_de_movimientos.each_char do |single|
-                @secuencia[@tam] = single
-                @tam = @tam+1
+                @movimientos << single
+                # @movimientos[@tam] = single
+                # @tam = @tam+1
             end
             return true
         end
         return false
     end
 
-    def secuencia
-        @secuencia
+    def movimientos
+        @movimientos
     end
     def restablecer()
-        @secuencia = []
-        @tam = 0
+        @movimientos = ""
+        # @movimientos = []
+        # @tam = 0
     end
 
     def configurar_secuencia(secuencia_de_movimientos)
         if validar_secuencia(secuencia_de_movimientos)
-            return "Movimientos del vehiculo = #{secuencia_de_movimientos}"
+            return "Movimientos del vehiculo = #{@movimientos}"
         else
             return "Secuencia NO Permitida"
         end
     end
     
 end
+
+# secuencia = Secuencia.new
+# secuencia.validar_secuencia("IAD")
+# puts secuencia.movimientos
