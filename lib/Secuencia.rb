@@ -1,43 +1,57 @@
 class Secuencia
     def initialize()
-        @secuencia = []
-        @tam = 0 
+        @movimientos
+        # @movimientos = []
+        # @tam = 0 
     end
     
     def validar(movimiento)
-        movimienpos_permitidos = ['A','I','D','N','O','E','S']
-        isvalid=0
-        for i in 0..(movimienpos_permitidos.length-1)
-            if movimiento==movimienpos_permitidos[i]
-                isvalid=1
-            end
+        if (movimiento == 'A' || movimiento == 'I' || movimiento == 'D')
+            return true;
+        else
+            return false;
         end
-        return true if(isvalid==1)
-        return false
     end
-    def verificar_secuencia(secuencia_de_movimientos)
+
+    def validar_movimientos(secuencia_de_movimientos)
         secuencia_de_movimientos.each_char do |single|
             return false if(!validar(single))
         end
         return true
     end
-    def establecer_secuencia(secuencia_de_movimientos)
+
+    def validar_secuencia(secuencia_de_movimientos)
        restablecer()
-        if(verificar_secuencia(secuencia_de_movimientos))
+        if(validar_movimientos(secuencia_de_movimientos))
             secuencia_de_movimientos.each_char do |single|
-                @secuencia[@tam] = single
-                @tam = @tam+1
+                @movimientos << single
+                # @movimientos[@tam] = single
+                # @tam = @tam+1
             end
             return true
         end
         return false
     end
-    def secuencia
-        @secuencia
+
+    def movimientos
+        @movimientos
     end
     def restablecer()
-        @secuencia = []
-        @tam = 0
+        @movimientos = ""
+        # @movimientos = []
+        # @tam = 0
+    end
+
+    def configurar_secuencia(secuencia_de_movimientos)
+        if validar_secuencia(secuencia_de_movimientos)
+            return "Movimientos del vehiculo = #{@movimientos}"
+        else
+            return "Secuencia NO Permitida"
+        end
     end
     
 end
+
+# secuencia = Secuencia.new
+# secuencia.validar_secuencia("IAD")
+# puts secuencia.movimientos

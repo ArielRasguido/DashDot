@@ -10,7 +10,7 @@ Given("visito la pagina principal") do
     click_button(name)
   end
   
-  Then("deberia enviarme a la pagina configuraciones") do
+  Then("deberia enviarme a la pagina configuracion") do
     visit '/configuracion'
   end
   

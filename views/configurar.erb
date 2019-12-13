@@ -2,7 +2,7 @@
 <form method="post" action="/configuracion">
     <h2> Terreno: </h2>
     <label for="_ancho">Ancho:</label>
-    <input type="text" name="ancho" id="_ancho" value="<%=@ancho_terreno%>"> <br> <br>
+    <input type="text" name="ancho" id="_ancho" value="<%=@ancho_terreno%>">
 
     <label for="_alto">Alto:</label>
     <input type="text" name="alto" id="_alto" value="<%=@alto_terreno%>"> <br> <br>
@@ -10,25 +10,35 @@
 
     <h2> Vehiculo: </h2>
     <label for="_x">Coordenada Horizontal "x":</label>
-    <input type="text" name="x" id="_x" value="<%=@x_vehiculo%>"> <br> <br>
+    <input type="text" name="x" id="_x" value="<%=@x_vehiculo%>">
 
     <label for="_y">Coordenada Vertical "y":</label>
-    <input type="text" name="y" id="_y" value="<%=@y_vehiculo%>"> <br> <br>
+    <input type="text" name="y" id="_y" value="<%=@y_vehiculo%>">
 
     <label for="_orientacion">Orientacion (N-S-E-O):</label>
-    <input type="text" name="orientacion" id="_orientacion" value="<%=@orientacion%>"> <br> <br> <br>
+    <input type="text" name="orientacion" id="_orientacion" value="<%=@orientacion%>"> <br> <br>
+
+
+    <h2> Secuencia: </h2>
+    <label for="_secuencia">Secuencia (I-D-A):</label>
+    <input type="text" name="secuencia" id="_secuencia" value="<%=@movimientos_ingresados%>"> <br> <br>
     
     <input type="submit" value="Configurar"> 
 </form>
+
 <hr>
-<br>
 <b style="font-size: 20;"> Terreno: </b>
 <ul style="font-size: 18;">
-    <li> <%=@configuracion_terreno%> </li> <br>
+    <li> <%=@configuracion_terreno%> </li>
 </ul>
 
 <b style="font-size: 20;"> Vehiculo: </b>
 <ul style="font-size: 18;">
     <li> <%=@configuracion_ubicacion%> </li> <br>
     <li> <%=@configuracion_orientacion%> </li>
+</ul>
+
+<b style="font-size: 20;"> Secuencia: </b>
+<ul style="font-size: 18;">
+    <li> <%=@secuencia_configurada%> </li>
 </ul>

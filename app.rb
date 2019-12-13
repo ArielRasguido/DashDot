@@ -15,12 +15,6 @@ get '/' do
     erb :bienvenida
   end
 
-#   post '/configurar' do
-#     erb :configurar
-#   end
-
-
-
 get '/configuracion' do
     erb :configurar
 end
@@ -33,33 +27,23 @@ post '/configuracion' do
     @x_vehiculo = params[:x].to_i
     @y_vehiculo = params[:y].to_i
     @orientacion = params[:orientacion]
-   
     @configuracion_orientacion = @vehiculo.configurarOrientacion(@orientacion)
 
     
     @dashDot.agregarTerreno(@terreno)
     @dashDot.agregarVehiculo(@vehiculo)
     @configuracion_ubicacion = @dashDot.configurarUbicacionVehiculo(@x_vehiculo, @y_vehiculo)
+
+    @movimientos_ingresados = params[:secuencia]
+    @secuencia_configurada = @secuencia.configurar_secuencia(@movimientos_ingresados)
+
+    @vehiculo.agregarSecuencia(@secuencia)
+    @secuencia_vehiculo = @vehiculo.secuencia.movimientos()
     erb :configurar
 end
 
-#Simulacion
-
-get '/simulacion' do
-    erb :simulacion
-end
-
-post '/simulacion' do
-    @movimientos_ingresados = params[:secuencia]
-    @secuencia.establecer_secuencia(@movimientos_ingresados)
-    if(!@secuencia.establecer_secuencia(@movimientos_ingresados))
-        @movimientos_ingresados = "SECUENCIA NO PERMITIDA!"
-    end
-    erb :simulacion
-end
-
-post '/dashdotSimulacion' do
-    @movimientos_ingresados = @secuencia.secuencia()
-    erb :dashdotSimulacion
-end
+# post '/dashdotSimulacion' do
+#     @movimientos_ingresados = @secuencia.secuencia()
+#     erb :dashdotSimulacion
+# end
 

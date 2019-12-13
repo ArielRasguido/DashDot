@@ -4,11 +4,12 @@ class Vehiculo
         @x = 0
         @y = 0
         @orientacion
+        @secuencia
     end
 
-    def esPositivo(elem)
-        numero = elem.to_i
-        return true if (numero > 0)
+    def esPositivo(numero)
+        # numero = elem.to_i
+        return true if (numero >= 0)
         return false
     end
 
@@ -51,6 +52,18 @@ class Vehiculo
 
     def y=(y)
         @y = y
+    end
+
+    def orientacion
+        @orientacion
+    end
+
+    def secuencia
+        @secuencia
+    end
+
+    def agregarSecuencia(secuencia_parametro)
+        @secuencia = secuencia_parametro
     end
     
 end
