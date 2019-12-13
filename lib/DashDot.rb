@@ -139,6 +139,18 @@ class DashDot
         @tam +=1
     end
 
+    def obtenerSecuencia(vehiculo)
+        vehiculo.secuencia.movimientos
+    end
+
+    def asignarSecuencia(vehiculo, secuencia)
+        vehiculo.agregarSecuencia(secuencia)
+    end
+
+    def terreno
+        @terreno
+    end
+
 end
 
 # dashDot = DashDot.new

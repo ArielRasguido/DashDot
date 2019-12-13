@@ -2,11 +2,10 @@
 <form method="post" action="/configuracion">
     <b style="font-size: 22;"> Terreno: </b>
     <label for="_ancho">Ancho:</label>
-    <input type="text" name="ancho" id="_ancho" value="<%=@ancho_terreno%>">
+    <input type="text" name="ancho" id="_ancho" value="<%=@dashDot.terreno.ancho%>">
 
     <label for="_alto">Alto:</label>
-    <input type="text" name="alto" id="_alto" value="<%=@alto_terreno%>"> <br> <br> <br>
-
+    <input type="text" name="alto" id="_alto" value="<%=@dashDot.terreno.alto%>"> <br> <br> <br>
 
     <b style="font-size: 22;"> Vehiculo: </b> 
     <label for="_x">Coordenada Horizontal "x":</label>
@@ -45,6 +44,6 @@
     <li> <%=@secuencia_configurada%> </li>
 </ul>
 
-<form action="/simulacion" method="post">
+<form action="/" method="get">
     <input type="submit" value="Aceptar">
 </form>
