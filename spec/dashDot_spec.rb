@@ -1,6 +1,7 @@
 require 'DashDot'
 require 'Terreno'
 require 'Vehiculo'
+require 'Secuencia'
 
 RSpec.describe DashDot do
     before { @dashDot = DashDot.new
@@ -86,7 +87,8 @@ RSpec.describe DashDot do
                 @dashDot.configurarUbicacionVehiculo(1, 2)
                 @secuencia.validar_secuencia("IAIAIAIAA")
                 @dashDot.vehiculo.agregarSecuencia(@secuencia)
-                expect(@dashDot.ejecutarSecuencia()).to eq("x = 1 ; y = 3 ; Orientacion = N")
+                @dashDot.ejecutarSecuencia()
+                expect(@dashDot.obtenerPosicion()).to eq("x = 1 ; y = 3 ; Orientacion = N")
             end
         end
 

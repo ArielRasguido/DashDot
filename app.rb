@@ -13,7 +13,7 @@ end
 
 get '/' do
     erb :bienvenida
-  end
+end
 
 get '/configuracion' do
     erb :configurar
@@ -37,13 +37,13 @@ post '/configuracion' do
     @movimientos_ingresados = params[:secuencia]
     @secuencia_configurada = @secuencia.configurar_secuencia(@movimientos_ingresados)
 
-    @vehiculo.agregarSecuencia(@secuencia)
-    @secuencia_vehiculo = @vehiculo.secuencia.movimientos()
+    @dashDot.vehiculo.agregarSecuencia(@secuencia)
     erb :configurar
 end
 
-# post '/dashdotSimulacion' do
-#     @movimientos_ingresados = @secuencia.secuencia()
-#     erb :dashdotSimulacion
-# end
-
+post '/simulacion' do
+    @pos_inicial = @dashDot.obtenerPosicion()
+    @movimientos = @dashDot.ejecutarSecuencia()
+    @pos_final = @dashDot.obtenerPosicion()
+    erb :simulacion
+end
