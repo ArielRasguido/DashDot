@@ -48,17 +48,3 @@ class Terreno
 
 end
 
-# terreno = Terreno.new
-# resp = terreno.esNumeroEntero(5)
-# resp = terreno.esNumeroEntero("cinco")
-# resp = terreno.esNumeroEntero(1.15)
-# puts resp
-
-# terreno = Terreno.new
-# terreno.definirDimensiones(15,5)
-# puts terreno.alto
-# puts terreno.ancho
-
-# terreno = Terreno.new
-# resp = terreno.configurarTerreno(0,0)
-# puts resp

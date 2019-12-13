@@ -51,7 +51,3 @@ class Secuencia
     end
     
 end
-
-# secuencia = Secuencia.new
-# secuencia.validar_secuencia("IAD")
-# puts secuencia.movimientos

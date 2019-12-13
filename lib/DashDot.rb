@@ -1,7 +1,3 @@
-# require './lib/Terreno'
-# require './lib/Vehiculo'
-# require './lib/Secuencia'
-
 class DashDot
     
     def initialize()
@@ -50,8 +46,6 @@ class DashDot
                     else
                         return "Movimiento supera el limite superior del terreno"
                     end
-                # else
-                #     return "Movimiento invalido"
                 end
 
             when 'E'
@@ -66,8 +60,6 @@ class DashDot
                     else
                         return "Movimiento supera el limite derecho del terreno"
                     end
-                # else
-                #     return "Movimiento invalido"
                 end
 
             when 'S'
@@ -82,8 +74,6 @@ class DashDot
                     else
                         return "Movimiento supera el limite inferior del terreno"
                     end
-                # else
-                #     return "Movimiento invalido"
                 end
 
             when 'O'
@@ -98,12 +88,7 @@ class DashDot
                     else
                         return "Movimiento supera el limite izquierdo del terreno"
                     end
-                # else
-                #     return "Movimiento invalido"
                 end
-
-            # else
-            #     return "Niguno"
             end
 
         else
@@ -152,37 +137,3 @@ class DashDot
     end
 
 end
-
-# dashDot = DashDot.new
-# terreno = Terreno.new
-# terreno.definirDimensiones(5, 5)
-# dashDot.agregarTerreno(terreno)
-
-# vehiculo1 = Vehiculo.new
-# secuencia = Secuencia.new
-# vehiculo1.definirOrientacion('N')
-# secuencia.validar_secuencia("A")
-# vehiculo1.agregarSecuencia(secuencia)
-# dashDot.agregarVehiculo(vehiculo1)
-# dashDot.configurarUbicacionVehiculo(dashDot.vehiculos[0],1,1)
-# puts "X: #{dashDot.vehiculos[0].x}    Y: #{dashDot.vehiculos[0].y}    Orientacion: #{dashDot.vehiculos[0].orientacion}"
-# puts dashDot.ejecutarSecuencia(dashDot.vehiculos[0])
-# puts dashDot.obtenerPosicion(dashDot.vehiculos[0])
-
-
-# vehiculo2 = Vehiculo.new
-# vehiculo2.definirOrientacion('N')
-# secuencia.validar_secuencia("I")
-# vehiculo2.agregarSecuencia(secuencia)
-# dashDot.incrementarTam()
-# dashDot.agregarVehiculo(vehiculo2)
-# dashDot.configurarUbicacionVehiculo(dashDot.vehiculos[1],0,0)
-# puts "X: #{dashDot.vehiculos[1].x}    Y: #{dashDot.vehiculos[1].y}    Orientacion: #{dashDot.vehiculos[1].orientacion}"
-# puts dashDot.ejecutarSecuencia(dashDot.vehiculos[1])
-# puts dashDot.obtenerPosicion(dashDot.vehiculos[1])
-
-
-# vehiculo.definirOrientacion('E')
-# dashDot.configurarUbicacionVehiculo(3,3)
-# puts "X: #{dashDot.vehiculo.x}    Y: #{dashDot.vehiculo.y}    Orientacion: #{dashDot.vehiculo.orientacion}"
-# dashDot.ejecutarSecuencia("ADADADAD")
